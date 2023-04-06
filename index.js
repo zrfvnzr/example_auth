@@ -8,6 +8,14 @@ async function main() {
   const bodyParser = require('body-parser')
   app.use(bodyParser.json())
 
+  // Database and Auth Database
+  const database = require('./database')
+  const auth_db = await database.openOrCreateDB('./auth/db.sqlite')
+  const initial = require('./database/initial')
+  await initial.createInitialTables(auth_db)
+  await initial.createInitialRows(auth_db)
+  // end Database and Auth Database
+
   // Serving frontend
   const path = require('path')
   app.use(express.static(path.join(__dirname, 'dist')))
