@@ -1,5 +1,37 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
+const app = createApp(App)
 
-createApp(App).mount('#app')
+// Vue Router
+  import {createRouter, createWebHistory} from 'vue-router'
+
+  // import route components
+  // import Component from '../components/Component.vue'
+
+  // configure routes
+  const routes = [
+    // {path: '/', component: Component}
+  ]
+
+  const router = createRouter({
+    history: createWebHistory(), routes
+  })
+  app.use(router)
+// end Vue Router
+
+// Pinia
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
+app.use(pinia)
+// end Pinia
+
+// Axios
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+app.use(VueAxios, axios)
+// end Axios
+
+app.mount('#app')
