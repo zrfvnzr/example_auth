@@ -5,6 +5,12 @@ export default {
   name: 'Home',
   computed: {
     ...mapStores(useGlobalStore)
+  },
+  async mounted() {
+    const isAuthorized = await this.globalStore.authorize()
+    if (!isAuthorized) {
+      location.href = '/login'
+    }
   }
 }
 </script>
