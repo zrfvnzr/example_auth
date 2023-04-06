@@ -7,10 +7,16 @@ const app = createApp(App)
 
   // import route components
   // import Component from '../components/Component.vue'
+  import Home from './views/Home.vue'
+  import Login from './views/Login.vue'
+  import Register from './views/Register.vue'
 
   // configure routes
   const routes = [
     // {path: '/', component: Component}
+    {path: '/', component: Home},
+    {path: '/login', component: Login},
+    {path: '/register', component: Register}
   ]
 
   const router = createRouter({
