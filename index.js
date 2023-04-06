@@ -16,6 +16,12 @@ async function main() {
   await initial.createInitialRows(auth_db)
   // end Database and Auth Database
 
+  // Auth Module
+  const auth = require('./auth')
+  await auth.config(app, auth_db)
+  app.use(auth.router)
+  // end Auth Module
+
   // Serving frontend
   const path = require('path')
   app.use(express.static(path.join(__dirname, 'dist')))
