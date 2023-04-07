@@ -15,7 +15,7 @@ export default {
 }
 </script>
 <template>
-<div>
+<div class="align-items-ccenter d-flex flex-column justify-content-center">
   <span>User is {{ globalStore.user }}</span>
   <button @click="this.globalStore.logout()">Logout</button>
 </div>

@@ -36,7 +36,7 @@ export const useGlobalStore = defineStore('global', {
         location.href = '/'
       } catch (error) {
         console.log(`Error in global.js > login() ${error}`)
-        if (error.response.data.message != '') {
+        if (error.response) {
           alert(error.response.data.message)
         } else {
           alert('Error on login')
@@ -53,7 +53,7 @@ export const useGlobalStore = defineStore('global', {
     },
     async register() {
       try {
-        if (this.register.password != this.user_register.password_confirm) {
+        if (this.user_register.password != this.user_register.password_confirm) {
           alert('Password and confirmation do not match')
           return
         }
@@ -62,7 +62,7 @@ export const useGlobalStore = defineStore('global', {
         location.href = '/'
       } catch (error) {
         console.log(`Error in global.js > register() ${error}`)
-        if (error.response.data.message != '') {
+        if (error.response) {
           alert(error.response.data.message)
         } else {
           alert('Error on register')
