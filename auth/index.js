@@ -126,6 +126,7 @@ async function configureLocalStrategy(db) {
             res.status(401).json({message: 'Login error', redirect: '/login?error=1'}).send()
           } else {
             let user_to_return = {
+              username: user.username,
               role: user.role
             }
             res.json({message: 'Login success', user: user_to_return}).send()

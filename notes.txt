@@ -1,0 +1,63 @@
+Project Outline
+  * Backend
+    * File: './index.js'
+      Description: Main backend file. Initializes express server and modules configuration.
+    * File: './.gitignore'
+    * File: './.env'
+    * Folder: './node_modules'
+    * Folder: './'
+      * Module: Database
+        Folder: './database'
+        * File: index.js
+          Path: './database/index.js'
+          Description: Contains helper functions for SQLite databases and tables
+          Functions: [
+            openOrCreateDB(source),
+            createTable(db, tableName, columns),
+            run(db, sql, params, ignoreErrs),
+            get(db, sql, params, ignoreErrs),
+            all(db, sql, params, ignoreErrs)
+          ]
+        * File: initial.js
+          Path: './database/initial.js'
+          Description: Creates initial SQLite databases, tables, and rows
+      * Module: Authentication
+        Folder: './auth'
+        * File: index.js
+          Path: './auth/index.js'
+          Description: Contains PassportJS configuration and authentication routes
+          Routes: [
+            (POST, '/api/auth/authorize'),
+            (POST, '/api/auth/login),
+            (POST, '/api/auth/logout),
+            (POST, '/api/auth/register)
+          ]
+        * File: db.sqlite
+          Path: './auth/db.sqlite'
+          Description: Contains authentication-related tables
+          Tables: [
+            (
+              Table: user,
+              Columns: [
+                id, role, username, password
+              ]
+            )
+          ]
+    * Folder: './dist'
+      Description: Contains static frontend files from `vite build`, served by backend
+  * Frontend
+    Folder: './frontend'
+      * File: './index.html'
+      * File: './package.json'
+      * File: './package-lock.json'
+      * File: './vite.config.js'
+        Description: Contains vite configuration such as output directory when using `vite build`.
+      * Folder: './node_modules'
+      * Folder: './public'
+        Description: Assets folder. Access using '/file_name.png'.
+      * Folder: './src'
+        * File: './App.vue'
+        * File: './main.js'
+        * Folder: './components'
+        * Folder: './stores'
+        * Folder: './views'

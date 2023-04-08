@@ -17,7 +17,7 @@
 }
 .myButton1 {
   background-color: var(--dark);
-  border: 2px solid black;
+  border: 0px solid black;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;

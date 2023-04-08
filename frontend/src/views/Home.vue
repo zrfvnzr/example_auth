@@ -15,9 +15,9 @@ export default {
 }
 </script>
 <template>
-<div class="align-items-ccenter d-flex flex-column justify-content-center">
-  <span>User is {{ globalStore.user }}</span>
-  <button @click="this.globalStore.logout()">Logout</button>
+<div class="align-items-center d-flex flex-column justify-content-center">
+  <h1 class="mb-5" style="font-size: 30px;">Welcome! You are logged in as <b><u>{{ globalStore.user.username }}</u></b> with role <b><u>{{ globalStore.user.role }}</u></b></h1>
+  <button @click="this.globalStore.logout()" class="myButton1">Logout</button>
 </div>
 </template>
 <style scoped>

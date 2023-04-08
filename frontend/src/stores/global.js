@@ -13,6 +13,7 @@ export const useGlobalStore = defineStore('global', {
       password_confirm: ''
     },
     user: {
+      username: 'default_username',
       role: 'default_role'
     }
   }),
